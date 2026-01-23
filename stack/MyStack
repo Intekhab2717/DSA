@@ -1,0 +1,41 @@
+package Stack;
+
+public class MyStack{
+    int top,size;
+    int[] a;
+
+    public MyStack(int size){
+        this.size = size;
+        top = -1;
+        a =new int[size];
+    }
+
+    public boolean push(int val) {
+        if(top >=size-1){
+            System.out.println("Full hai");
+            return false;
+        }
+        a[++top]= val;
+        return true;
+    }
+
+    public int pop() {
+        if(top <0) {
+            System.out.println("kuch  nahi");
+            return 0;
+        }
+        return a[top--];
+    }
+    public int peek() {
+        if(top <0) {
+            System.out.println("kuch  nahi");
+            return 0;
+        }
+        return a[top];
+    }
+
+    public boolean isEmpty() {
+        return top < 0;
+    }
+
+}
