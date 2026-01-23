@@ -1,0 +1,58 @@
+package array_2d;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SpiralMatrix {
+    public static void main(String[] args) {
+        int n=6;
+        int cnt=1;
+        int[][] mat =new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                mat[i][i]=cnt;
+            }
+            cnt++;
+        }
+        System.out.println("---------------");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(mat[i][i]+" ");
+            }
+            System.out.println();
+        }
+
+        int l=0;
+        int r=5; int t=0; int bt=5;
+
+        List<Integer> list =new ArrayList<>();
+        while(t<=bt && l<=r){
+            for (int i = l; i <=r; i++) {
+                list.add(mat[t][i]);
+                System.out.print(mat[t][i]);
+            }
+            System.out.println();
+            t++;
+            for (int i = t; i <=bt; i++) {
+                list.add(mat[i][r]);
+                System.out.print(mat[i][r]);
+            }
+            System.out.println();
+            r--;
+            if(t<=bt) {
+                for (int i = r; i >=l; i--) {
+                    list.add(mat[bt][i]);
+                }
+                bt--;
+            }
+            if(l<=r) {
+                for (int i = bt; i >= t; i--) {
+                    list.add(mat[i][l]);
+                }
+                l++;
+            }
+        }
+        System.out.println(list);
+        System.out.println(list.size());
+    }
+}
