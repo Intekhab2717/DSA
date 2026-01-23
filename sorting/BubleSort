@@ -1,0 +1,26 @@
+package sorting;
+
+import java.util.Arrays;
+
+public class  BubleSort {
+    public static void main(String[] args) {
+        int []arr={3,7,9,2,4,5,2};
+        int n=arr.length-1,temp=0,didSwap=0;
+        for(int i=n;i>=1;i--) {
+            didSwap=0;
+            for (int j = 0; j <= i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                    didSwap=1;
+                }
+            }
+            if(didSwap==0){
+                break;
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+
+}
