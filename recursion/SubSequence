@@ -1,0 +1,23 @@
+package recursion;
+
+import java.util.ArrayList;
+
+public class SubSequence {
+    public static void main(String[] args) {
+        int[] a={3,1,2};
+        int n=3;
+        ArrayList<Integer> list =new ArrayList<>();
+        fun(0,a,n,list);
+    }
+
+    private static void fun(int i, int[] a, int n, ArrayList<Integer> list) {
+        if(i>=n){
+            System.out.println(list);
+            return;
+        }
+        list.add(a[i]);
+        fun(i+1,a,n,list);
+        list.remove(list.size()-1);
+        fun(i+1,a,n,list);
+    }
+}
