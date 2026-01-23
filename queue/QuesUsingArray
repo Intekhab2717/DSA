@@ -1,0 +1,50 @@
+package Ques;
+
+public class QuesUsingArray {
+    static int[] a = new int[10];
+    static int fr=0;
+    static int re=0;
+    static int size=0;
+    public static void main(String[] args) {
+     pushh(10);
+        pushh(101);
+     System.out.println(topar());
+     System.out.println(Popped());
+        pushh(11);
+        pushh(12);
+        pushh(13);
+     System.out.println(topar());
+        System.out.println(isEmptty());
+    }
+
+    private static boolean isEmptty() {
+        return size<1;
+    }
+
+    private static int topar() {
+        if(size>=1){
+            return a[fr%10];
+        }
+
+        return -1;
+    }
+
+    private static int Popped() {
+        int val = a[fr%10];
+        a[fr%10]=-1;
+        fr++;
+        size--;
+        return val;
+    }
+
+    private static void pushh(int i) {
+        if(size<=10){
+            a[re%10]=i;
+            re++;
+            size++;
+            System.out.println("ElementPushhed : "+i);
+        } else {
+            System.out.println("Ques is Full :"+ -1);
+        }
+    }
+}
