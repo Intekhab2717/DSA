@@ -1,0 +1,29 @@
+package hashMap;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
+public class AllTripletsWithSumZero {
+    public static void main(String[] args) {
+        int[] arr={0, -1, 2, -3, 1};
+        List<List<Integer>> list =new ArrayList<>();
+        HashMap<Integer,List<Integer>> map =new HashMap<>();
+        for (int i = 0; i < arr.length-1; i++) {
+            for (int j = i+1; j < arr.length; j++) {
+                int val=-1*(arr[i]+arr[j]);
+                if(map.containsKey(val)){
+                    for(int a : map.get(val)){
+                        list.add(Arrays.asList(a,i,j));
+                    }
+                }
+            }
+            map.putIfAbsent(arr[i], new ArrayList<>());
+            map.get(arr[i]).add(i);
+        }
+
+        System.out.println(list);
+    }
+}
